@@ -1,0 +1,24 @@
+<h4 class="text-center">Login</h4>
+
+<form (ngSubmit)="login()">
+  <div class="mb-3">
+    <input
+    type="text"
+    class="form-control"
+    placeholder="Usuario"
+    [(ngModel)]="userName"
+    name="userName"
+    />
+  </div>
+  <div class="mb-3">
+    <input
+    type="password"
+    class="form-control"
+    placeholder="contraseña" [(ngModel)]="password"
+    name="password"
+    />
+  </div>
+  <div class="d-grid gap-2 col-12 mx-auto">
+    <button class="btn btn-primary btn-block">Acceder</button>
+  </div>
+</form>
