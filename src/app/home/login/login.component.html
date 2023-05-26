@@ -1,6 +1,6 @@
 <h4 class="text-center">Login</h4>
 
-<form (ngSubmit)="login()">
+<form (ngSubmit)="login()" #loginForm="ngForm">
   <div class="mb-3">
     <input
     type="text"
@@ -8,17 +8,30 @@
     placeholder="Usuario"
     [(ngModel)]="userName"
     name="userName"
+    #campoUserName="ngModel"
+    required
     />
+    <app-message
+    *ngIf="campoUserName.invalid && campoUserName.touched"
+    mensaje="Usuario requerido"></app-message>
   </div>
   <div class="mb-3">
     <input
     type="password"
     class="form-control"
-    placeholder="contraseña" [(ngModel)]="password"
+    placeholder="contraseña"
+    [(ngModel)]="password"
     name="password"
+    #campoPassWord="ngModel"
+    required
     />
+    <app-message
+    *ngIf="campoPassWord.invalid && campoPassWord.touched"
+    mensaje="Contraseña requerida"></app-message>
   </div>
   <div class="d-grid gap-2 col-12 mx-auto">
-    <button class="btn btn-primary btn-block">Acceder</button>
+    <button class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Acceder</button>
   </div>
 </form>
+
+<p>No tienes una cuenta? <a [routerLink]="['nuevo-usuario']">Regístrate</a></p>
