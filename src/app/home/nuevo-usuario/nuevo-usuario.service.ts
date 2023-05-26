@@ -1,17 +1,23 @@
 import { NuevoUsuario } from './nuevo-usuario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class NuevoUsuarioService {
 
-  constructor(private httpclient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
+  url = 'http://localhost:3000/user'
 
+  registrarUsuario(nuevoUsuario: NuevoUsuario) {
+    return this.httpClient.post('${this.url}/signup', nuevoUsuario);
+  }
 
-  registrarUsuario(nuevoUsuario: NuevoUsuario){
-    return this.httpclient.post('http://localhost:3000/user/signup', nuevoUsuario)
+  verificarUserName(userName: string): Observable<any> {
+    return this.httpClient.get('${this.url}/exists/${userName}');
   }
 }
