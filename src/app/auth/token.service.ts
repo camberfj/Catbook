@@ -10,15 +10,15 @@ export class TokenService {
     return localStorage.getItem(KEY) ?? '';
   }
 
-  guardarToken(token: string){
+  guardarToken(token: string) {
     localStorage.setItem(KEY, token);
   }
 
-  eliminarToken(){
+  eliminarToken() {
     localStorage.removeItem(KEY);
   }
 
-  existeToken(){
+  existeToken() {
     return !!this.obtenerToken();
   }
 }
