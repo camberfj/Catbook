@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
-const apiUrl = "http://localhost:3000"
+const API = environment.apiUrl;
 
 @Component({
   selector: 'app-mascota',
@@ -17,7 +18,7 @@ export class MascotaComponent implements OnInit {
     if( url.startsWith('data') ) {
       this.baseUrl = url
     }else{
-      this.baseUrl = `${apiUrl}/ims/${url}`;
+      this.baseUrl = `${API}/ims/${url}`;
     }
   }
 
