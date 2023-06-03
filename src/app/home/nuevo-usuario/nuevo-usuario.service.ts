@@ -14,10 +14,10 @@ export class NuevoUsuarioService {
   url = 'http://localhost:3000/user'
 
   registrarUsuario(nuevoUsuario: NuevoUsuario) {
-    return this.httpClient.post('${this.url}/signup', nuevoUsuario);
+    return this.httpClient.post(`${this.url}/signup`, nuevoUsuario);
   }
 
   verificarUserName(userName: string): Observable<any> {
-    return this.httpClient.get('${this.url}/exists/${userName}');
+    return this.httpClient.get(`${this.url}/exists/${userName}`);
   }
 }
