@@ -1,3 +1,14 @@
 <div class="row">
-  <div class="col-4 mt-2">Photo</div>
+  <div class="col-4 mt-2" *ngFor="let mascota of mascotas">
+    <a [routerLink]="['/mascotas', mascota.id]" class="text-decoration-none">
+      <app-card [title]="mascota.description">
+        <app-mascota [url]="mascota.url" [description]="mascota.description"
+        ></app-mascota>
+        <div class="text-center">
+          <i aria-hidden="true" class="fa fa-heart-o fa-1x mr-2"> {{ mascota.likes }}</i>
+          <i aria-hidden="true" class="fa fa-comment-o fa-1x mr-2"> {{ mascota.comments }}</i>
+        </div>
+      </app-card>
+    </a>
+  </div>
 </div>
