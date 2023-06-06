@@ -18,7 +18,7 @@ export class MascotaComponent implements OnInit {
     if( url.startsWith('data') ) {
       this.baseUrl = url
     }else{
-      this.baseUrl = `${API}/ims/${url}`;
+      this.baseUrl = `${API}/imgs/${url}`;
     }
   }
 
