@@ -1,0 +1,5 @@
+.comentarios-list{
+  border-top: 1px solid #ccc;
+  height: 48vh;
+  overflow-y: auto;
+}

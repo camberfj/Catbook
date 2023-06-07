@@ -1,3 +1,10 @@
+<div class="container-md text-center mt-5" *ngIf="!mascotas.length">
+  <P class="text-center text-muted">
+    No se encontró ninguna imagen
+  </P>
+  <a [routerLink]="['nuevo']" class="btn btn-outline-primary">Subir una nueva foto</a>
+</div>
+
 <div class="row">
   <div class="col-4 mt-2" *ngFor="let mascota of mascotas">
     <a [routerLink]="['/mascotas', mascota.id]" class="text-decoration-none">

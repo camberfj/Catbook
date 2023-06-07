@@ -1,0 +1,29 @@
+<div class="container my-2" *ngIf="mascota$ | async as mascota">
+  <div class="row">
+    <div class="col-md-8">
+      <app-mascota
+        [url]="mascota.url"
+        [description]="mascota.description"
+      ></app-mascota>
+    </div>
+    <div class="col-md-4">
+      <h3 class="text-left break-word">{{ mascota.description }}</h3>
+      <div class="my-1">
+        <i
+          (click)="like()"
+          class="fa fa-heart-o fa-2x mr-2 pull-left pointer"
+          >{{ mascota.likes }}</i
+        >
+        <i class="fa fa-comment-o fa-2x mr-2 ml-2">{{ mascota.comments }}</i>
+        <i
+          (click)="eliminar()"
+          class="fa fa-trash-o fa-2x pull-right pointer trash"
+        ></i>
+        <app-comentarios [id]="mascota.id" *ngIf="mascota.allowComments; else warning"></app-comentarios>
+        <ng-template #warning>
+          <P class="text-center mt-5">Usuario no puede comentar la imagen</P>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
