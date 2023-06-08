@@ -16,6 +16,14 @@
     </div>
   </ng-template>
   <div class="mt-4">
-    FORMULARIO
+    <form [formGroup]="comentarioForm" (submit)="crearComentario()">
+      <div class="mb-3">
+        <textarea class="form-control" formControlName="comentario" placeholder="comentario..."></textarea>
+        <div class="d-grid gap-2 col-12 mx-auto mt-2">
+          <button class="btn btn-primary btn-block">Comentar</button>
+        </div>
+        <app-message mensaje="Maximo 50 caracteres" *ngIf="!!comentarioForm.get('comentario')?.errors?.['maxlength']"></app-message>
+      </div>
+    </form>
   </div>
 </div>

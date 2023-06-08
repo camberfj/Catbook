@@ -1,6 +1,17 @@
 <header class="sticky-top">
   <nav class="container-fluid navbar navbar-dark bg-primary">
-    <a class="navbar-brand">CatBook</a>
+    <a class="navbar-brand">
+      <i class="fa fa-bars mr-2 pointer" (click)="menu.abrirMenu()"></i>
+      CatBook</a>
+
+      <app-menu #menu>
+        <ul class="list-unstyled">
+          <li>
+            <a [routerLink]="['mascotas', 'nuevo']" class="text-muted text-decoration-none">Nueva mascota</a>
+          </li>
+        </ul>
+      </app-menu>
+
     <div *ngIf="user$ | async as user">
       <div *ngIf="user.name; else login" class="text-light">
         <i class="fa fa-user-circle"></i>

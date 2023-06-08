@@ -41,4 +41,8 @@ export class DetalleComponent implements OnInit {
       error: (error) => console.log(error),
     });
   }
+
+  actualizarDatos(): void{
+    this.mascota$ = this.mascotasService.buscarPorId(this.mascotaId);
+  }
 }

@@ -19,7 +19,7 @@ export class ComentariosService {
   }
 
   crearComentario(id: number, commentText: string): Observable<Comentario>{
-    return this.http.post<Comentario>(`${API}/photos/${id}/Comment`, {
+    return this.http.post<Comentario>(`${API}/photos/${id}/Comments`, {
       commentText
     })
   }
