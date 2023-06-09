@@ -9,10 +9,11 @@ import { GridMascotasComponent } from './grid-mascotas/grid-mascotas.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { ComentariosComponent } from './detalle/comentarios/comentarios.component';
 import { SharedModule } from '../shared/shared.module';
+import { NuevaMascotaComponent } from './nueva-mascota/nueva-mascota.component';
 
 
 @NgModule({
-  declarations: [ListaMascotasComponent,MascotaComponent, GridMascotasComponent, DetalleComponent, ComentariosComponent],
+  declarations: [ListaMascotasComponent,MascotaComponent, GridMascotasComponent, DetalleComponent, ComentariosComponent, NuevaMascotaComponent],
   imports: [CommonModule,MascotasRoutingModule, CardModule, SharedModule],
 })
 export class MascotasModule { }

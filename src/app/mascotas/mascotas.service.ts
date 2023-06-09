@@ -38,4 +38,16 @@ export class MascotasService {
   eliminar(id: number): Observable<Mascota> {
     return this.http.delete<Mascota>(`${API}/photos/${id}`);
   }
+
+  upload(description: string, allowComments: boolean, file: File){
+    const formData = new FormData();
+
+    formData.append('description', description)
+    formData.append('allowComments', allowComments ? 'true' : 'false');
+    formData.append('imageFile', file);
+
+    return this.http.post(`${API}/photos/upload`, formData, {
+      observe: 'events',reportProgress: true,
+    });
+  }
 }
